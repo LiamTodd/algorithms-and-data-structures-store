@@ -1,0 +1,16 @@
+prims(G, s):
+    distances[1...V] = infinity
+    distances[s] = 0
+    predecessors[1...v] = None
+    visited[1...V] = False
+    Q = priorityQueue(v in V, key=distances)
+    while Q is not empty:
+        u = Q.popMin()
+        visited[u] = True
+        for each edge (u,v) adjacent to u:
+            if v is not visited and weight(u,v) < distances[v]:
+                distances[v] = weight(u,v)
+                predecessor[v] = u
+            
+        
+    return distances, predecessors
