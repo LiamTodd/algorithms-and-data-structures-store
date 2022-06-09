@@ -11,6 +11,7 @@ prims(G, s):
             if v is not visited and weight(u,v) < distances[v]:
                 distances[v] = weight(u,v)
                 predecessor[v] = u
+                //update p-queue
             
         
     return distances, predecessors
