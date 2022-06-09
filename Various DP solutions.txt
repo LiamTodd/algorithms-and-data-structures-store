@@ -1,0 +1,35 @@
+fibonacci:
+    overlapping subproblem: fib[i] = the i'th fibonacci number
+    fib[i] = 1 if i = 0 or i = 1
+    fib[i] = fib[i-1] + fib[i-2] otherwise
+    time comp = O(N)
+
+
+coins change:
+    overlapping subproblem: DP[v] = the minimum number of coins which can be used to make value=v
+    min_coins[amount] = 0 if amount = 0
+    min_coins[amount] = 1 + min(min_coins[amount-coin]) for coin in coins, otherwise
+    time comp = O(C*amount)
+
+
+unbounded knapsack:
+    overlapping subproblem: DP[c] = the maximum value which can be fit into a knapsack of capacity=c
+    max_val[weight] = 0 if weight=0
+    max_val[weight] = max(value[i] + max_val[weight - weight[i]]) for i in items, otherwise
+    time comp = O(items*weight)
+
+0/1 knapsack:
+    overlapping subproblem: DP[i][capacity] = the maximum value that can be fit in a knapsack of capacity=capacity, using items 0..i
+    DP[items][capacity] = 0 if items=0
+    DP[items][capacity] = DP[items-1][capacity] if weight[i] > capacity
+    DP[items][capacity] = max(DP[items-1][capacity], value[i]+DP[items-1][capacity-weight[i]]) for all i items, otherwise
+    time comp = O(NC) = O(2^B * N) where C is specified by B bits
+
+edit distance:
+    overlapping subproblem: DP[i][j] = the minimum number of edits to transform s1[0..i] into s2[0..j]
+    s1: 0...i
+    s2: 0...j
+    DP[i][j] = i if j = 0
+    DP[i][j] = j if i = 0
+    DP[i][j] = min(DP[i-1][j-1] (+1 if char is different), DP[i-1][j]+1, DP[i][j-1]+1) otherwise
+    
