@@ -1,0 +1,10 @@
+bellman_ford(G, s):
+    distances[1...V] = infinity
+    distances[s] = 0
+    for _ in range(V): // O(V)
+        for each edge (u, v) in E: // O(E)
+            // relax edge
+            // difference to dijkstra's: don't care about updating any p-queue as we always relax every edge
+            if distances[v] > distances[u] + edge.weight:
+                distances[v] = distances[u] + edge.weight
+    return distances
