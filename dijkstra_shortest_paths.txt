@@ -1,0 +1,14 @@
+dijkstra(G, s):
+    distances[1...V] = infinity
+    distances[s] = 0
+    visited[1...V] = False
+    Q = priorityQueue(v in V, key=distances)
+    while Q is not empty:
+        u = Q.popMin()
+        visited[u] = True
+        for all edges(u,v): // each edge is visited once; O(E) total iterations of this loop in whole algorithm
+            //relax edge if the vertex has not been visited yet (greedy approach)
+            if distances[u] + edge.weight < distances[v] and visited[v] is False
+                distances[v] = distances[u] + edge.weight
+                // update priorityQueue in logV
+        
