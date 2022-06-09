@@ -1,0 +1,23 @@
+floyd_warshall(G):
+    DP[1...V][1...V] = infinity
+    DP[u][u] = 0 for all vertices u in G
+    for k in range(V): // include new intermediate node in possible paths
+        for i in range(V):
+            for j in range(V):
+                if DP[i][j] > DP[i][k] + DP[k][j]:
+                    DP[i][j] = DP[i][k] + DP[k][j]
+                // more 'DP' alternative: DP[i][j] = min(DP[i][j], DP[i][k]+DP[k][j])
+    return DP
+
+
+detect_negative_cycles(G):
+    DP[1...V][1...V] = infinity
+    DP[u][u] = 0 for all vertices u in G
+    for k in range(V): // include new intermediate node in possible paths
+        for i in range(V):
+            for j in range(V):
+                if DP[i][j] > DP[i][k] + DP[k][j]:
+                    DP[i][j] = DP[i][k] + DP[k][j]
+                if i == j and DP[i][j] < 0:
+                    return NEGATIVE_CYCLE
+    return DP
