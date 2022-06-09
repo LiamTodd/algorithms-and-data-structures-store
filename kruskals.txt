@@ -1,0 +1,9 @@
+kruskals(G):
+    forrest = UnionFind(v in V)
+    T = ({empty edge set}, {v in V})
+    sort(E, key(u,v)=weight(u,v))
+    for each edge in E:
+        if UnionFind.FIND(u) != UnionFind.FIND(v):
+            UnionFind.UNION(u,v) // using merge-by-size hueristic
+            T.add_edge(u,v)
+    return T
