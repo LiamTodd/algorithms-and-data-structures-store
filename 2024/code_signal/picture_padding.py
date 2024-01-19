@@ -13,11 +13,12 @@
 #                      "*ded*",
 #                      "*****"]
 
+
 def solution(picture):
     a = "*"
     for i in range(len(picture)):
         picture[i] = a + picture[i] + a
-    a_row = a*len(picture[0])
+    a_row = a * len(picture[0])
     picture.insert(0, a_row)
     picture.append(a_row)
     return picture

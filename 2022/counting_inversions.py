@@ -10,12 +10,13 @@ def sort_and_count(L):
         inversions = inversions_s + inversions_l + inversions_h
     return L, inversions
 
+
 def merge_and_count(left, right):
     res = []
     i = 0
     j = 0
     split_inversions = 0
-    while i < len(left) or j < len(right): # while there are elements to be merged
+    while i < len(left) or j < len(right):  # while there are elements to be merged
         if j >= len(right) or i < len(left) and left[i] <= right[j]:
             res.append(left[i])
             i += 1
@@ -26,5 +27,5 @@ def merge_and_count(left, right):
     return res, split_inversions
 
 
-print(sort_and_count([1,2,3,4,5]))
-print(sort_and_count([5,4,3,2,1]))
+print(sort_and_count([1, 2, 3, 4, 5]))
+print(sort_and_count([5, 4, 3, 2, 1]))

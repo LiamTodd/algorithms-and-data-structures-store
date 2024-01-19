@@ -7,6 +7,7 @@
 
 # Strings have 3 common characters - 2 "a"s and 1 "c".
 
+
 def count_chars(s1):
     res = {}
     for char in s1:
@@ -15,7 +16,8 @@ def count_chars(s1):
         else:
             res[char] = 1
     return res
-    
+
+
 def solution(s1, s2):
     counter_s1 = count_chars(s1)
     counter_s2 = count_chars(s2)

@@ -8,11 +8,12 @@ def merge_sort(L):
         L = merge(left, right)
     return L
 
+
 def merge(left, right):
     res = []
     i = 0
     j = 0
-    while i < len(left) or j < len(right): # while there are elements to be merged
+    while i < len(left) or j < len(right):  # while there are elements to be merged
         if j >= len(right) or i < len(left) and left[i] <= right[j]:
             res.append(left[i])
             i += 1
@@ -21,5 +22,6 @@ def merge(left, right):
             j += 1
     return res
 
-print(merge_sort([1,2,3,4,5]))
-print(merge_sort([5,4,3,2,1]))
+
+print(merge_sort([1, 2, 3, 4, 5]))
+print(merge_sort([5, 4, 3, 2, 1]))

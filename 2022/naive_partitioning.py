@@ -12,4 +12,4 @@ def partition(L, pivot):
     return left + equivalent + right
 
 
-print(partition([1,3,6,3,1,3,8,1,9,8,6,2,1], 4))
+print(partition([1, 3, 6, 3, 1, 3, 8, 1, 9, 8, 6, 2, 1], 4))

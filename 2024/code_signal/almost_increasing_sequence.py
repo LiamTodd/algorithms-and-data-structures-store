@@ -1,5 +1,6 @@
 # task: return true if the array can be made strictly increasing by removing at most one element, else false.
 
+
 def solution(sequence):
     left = 0
     right = 1
@@ -13,7 +14,7 @@ def solution(sequence):
             rem_idx = left
         if err_left > 1:
             break
-        
+
         if flag:
             if left == 0:
                 left += 1
@@ -25,7 +26,7 @@ def solution(sequence):
             if rem_idx == left:
                 left += 1
             right += 1
-    
+
     left = 0
     right = 1
     err_right = 0
@@ -38,7 +39,7 @@ def solution(sequence):
             rem_idx = right
         if err_right > 1:
             break
-        
+
         if flag:
             right += 1
         else:
@@ -46,7 +47,7 @@ def solution(sequence):
             if rem_idx == left:
                 left += 1
             right += 1
-    
+
     if err_left > 1 and err_right > 1:
         return False
 

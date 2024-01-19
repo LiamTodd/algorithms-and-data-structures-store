@@ -13,7 +13,7 @@ class LinearProbeHashTable:
             if index == first_check:
                 print("Table full")
                 return None
-            
+
         # empty spot found, insert here
         self.table[index] = (key, value)
 
@@ -29,7 +29,7 @@ class LinearProbeHashTable:
             # ensure not double-checking
             if index == first_check:
                 return False
-            
+
         return False
 
     def delete(self, key):
