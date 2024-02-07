@@ -1,14 +1,16 @@
 class Solution {
 
+  // beats 88%
+
   public String frequencySort(String s) {
     // count occurrences of chars in hash table: O(n)
     HashMap<Character, Integer> t = new HashMap<>();
-    for (char c : s.toCharArray()) {
-      if (t.get(c) == null) {
-        t.put(c, 1);
-      } else {
-        t.put(c, t.get(c) + 1);
-      }
+    int i;
+    int l = s.length();
+    char c;
+    for (i = 0; i < l; i++) {
+      c = s.charAt(i);
+      t.compute(c, (key, value) -> (value == null) ? 1 : value + 1);
     }
 
     // put hashtable entries into priority queue, prioritised on count: O(nlog(n))
@@ -21,17 +23,19 @@ class Solution {
     }
 
     // pop from queue to create new string: O(nlog(n))
-    char[] sorted = new char[s.length()];
-    int i = 0;
+    char[] sorted = new char[l];
     int j;
+    int k;
     Map.Entry<Character, Integer> e;
+    i = 0;
     while (!pq.isEmpty()) {
-      e = pq.peek();
-      for (j = 0; j < e.getValue(); j++) {
-        sorted[i] = e.getKey();
+      e = pq.poll();
+      c = e.getKey();
+      k = e.getValue();
+      for (j = 0; j < k; j++) {
+        sorted[i] = c;
         i++;
       }
-      pq.poll();
     }
 
     return new String(sorted);
