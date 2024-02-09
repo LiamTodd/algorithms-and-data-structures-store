@@ -14,15 +14,20 @@ class Solution {
     int i = l - 1;
     int rightPadding;
 
+    // preprocess - walk past spaces at the end of the string
     while (s.charAt(i) == ' ') {
       i--;
     }
     rightPadding = l - i - 1;
+
+    // walk until a space is found
     for (i = l - rightPadding - 1; i >= 0; i--) {
       if (s.charAt(i) == ' ') {
         break;
       }
     }
+
+    // calculate the length
     return l - i - rightPadding - 1;
   }
 }
