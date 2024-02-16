@@ -22,7 +22,7 @@ class Solution {
     for (i = 1; i < l; i++) {
       min = l;
       for (j = 0; j < i; j++) {
-        // if j can be reached, would improve the minimum, i can be reached from j,
+        // if j can be reached, would improve the minimum, and i can be reached from j,
         if (memo[j] >= 0 && memo[j] < min && nums[j] >= i - j) {
           min = memo[j];
         }
